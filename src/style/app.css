@@ -1,0 +1,31 @@
+body {
+  padding: 2rem;
+}
+
+.no-data {
+  font-size: 1.5em;
+}
+
+.data-table .header,  .data-table .body{
+  display: grid;
+  grid-template-columns: .5fr 1.5fr 1fr 2fr 1fr 1.5fr 1.5fr;
+  border: 1px solid #ced4da;
+  padding: .7rem;
+  border-top: 0;
+  min-width: 1250px;
+}
+
+.data-table .header {
+  font-weight: bold;
+  border-top: 1px solid #ced4da;
+}
+
+.table-container {
+  max-height: calc(100vh - 300px);
+  overflow: scroll;
+  border-bottom: 1px solid #ced4da;
+}
+
+.data-table .header .code_postal i:hover{
+  cursor: pointer;
+}

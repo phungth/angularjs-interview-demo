@@ -1,0 +1,46 @@
+<div class="search-sort mb-4">
+  <div class="search">
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" ng-model="app.searchValue">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="button" ng-click="app.onSearch()">Search</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="data-table">
+  <div class="header">
+    <div class="index">#</div>
+    <div class="commerce">commerce</div>
+    <div class="dea_fermeture">dea fermeture</div>
+    <div class="adresse">adresse</div>
+    <div class="code_postal">
+      code postal
+      <i class="fa"
+         ng-class="{'fa-sort-amount-desc': !app.sortCodePostalByASC,'fa-sort-amount-asc': app.sortCodePostalByASC}"
+         ng-click="app.onSort()"></i>
+    </div>
+    <div class="ville">ville</div>
+    <div class="coord_geo">coord geo</div>
+  </div>
+  <div class="table-container">
+    <div class="table-infinite"
+         infinite-scroll-parent="true"
+         infinite-scroll="app.addMoreItems()"
+         infinite-scroll-disabled='app.busy'>
+      <div class="body" ng-repeat="item in app.data track by $index">
+        <div class="index">{{$index + 1}}</div>
+        <div class="commerce">{{item.fields.tco_libelle}}</div>
+        <div class="dea_fermeture">{{item.fields.dea_fermeture}}</div>
+        <div class="adresse">{{item.fields.dea_numero_rue_livraison_dea_rue_livraison}}</div>
+        <div class="code_postal">{{item.fields.code_postal}}</div>
+        <div class="ville">{{item.fields.ville}}</div>
+        <div class="coord_geo">{{item.fields.coord_geo[0]}}, {{item.fields.coord_geo[1]}}</div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="no-data text-danger text-center" ng-show="app.data.length === 0">No data ...</div>
+
+
+
