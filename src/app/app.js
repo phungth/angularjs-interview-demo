@@ -51,8 +51,6 @@ class AppCtrl {
       if (resp.data && resp.data.records.length) {
         this.data.push(...resp.data.records);
         this.busy = false;
-      } else {
-        this.busy = true;
       }
     }).catch((err) => {
       console.log(err);
